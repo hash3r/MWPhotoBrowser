@@ -261,7 +261,7 @@
     CGFloat minScale = MIN(xScale, yScale);                 // use minimum of these to allow the image to become fully visible
     
     // Calculate Max
-    CGFloat maxScale = 2;
+    CGFloat maxScale = 1;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         // Let them go a bit bigger on a bigger screen!
         maxScale = 4;
@@ -397,10 +397,11 @@
 	} else {
 		
 		// Zoom in to twice the size
-        CGFloat newZoomScale = ((self.maximumZoomScale + self.minimumZoomScale) / 2);
+        CGFloat scaleLevel = 2;
+        CGFloat newZoomScale = ((self.maximumZoomScale + self.minimumZoomScale) / scaleLevel);
         CGFloat xsize = self.bounds.size.width / newZoomScale;
         CGFloat ysize = self.bounds.size.height / newZoomScale;
-        [self zoomToRect:CGRectMake(touchPoint.x - xsize/2, touchPoint.y - ysize/2, xsize, ysize) animated:YES];
+        [self zoomToRect:CGRectMake(touchPoint.x - xsize/scaleLevel, touchPoint.y - ysize/scaleLevel, xsize, ysize) animated:YES];
 
 	}
 	
