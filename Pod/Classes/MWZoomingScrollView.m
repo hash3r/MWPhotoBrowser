@@ -261,7 +261,7 @@
     CGFloat minScale = MIN(xScale, yScale);                 // use minimum of these to allow the image to become fully visible
     
     // Calculate Max
-    CGFloat maxScale = 3;
+    CGFloat maxScale = 2;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         // Let them go a bit bigger on a bigger screen!
         maxScale = 4;
